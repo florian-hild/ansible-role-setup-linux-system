@@ -1,0 +1,16 @@
+---
+
+- name: Block
+  tags: setup-linux-system
+  block:
+    - name: Print ansible os family
+      ansible.builtin.debug:
+        var: ansible_os_family
+        verbosity: 1
+    - ansible.builtin.import_tasks: setup_debian_system.yml
+      when: ansible_os_family == "Debian"
+    - ansible.builtin.import_tasks: setup_redhat_system.yml
+      when: ansible_os_family == "RedHat"
+
+
+...

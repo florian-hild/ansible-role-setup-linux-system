@@ -1,0 +1,18 @@
+---
+
+package_list_debian:
+  - vim
+  - curl
+  - lsb-release
+  - wget
+  - sudo
+  - git
+  - tree
+  - rsync
+  - net-tools
+  - zip
+  - unzip
+
+timezone: "Europe/Berlin"
+
+...
