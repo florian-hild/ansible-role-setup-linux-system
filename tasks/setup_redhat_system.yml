@@ -1,7 +1,6 @@
 ---
 
-  - name: Print ansible os family Debian
-    tags: test
+  - name: Print ansible os family
     ansible.builtin.debug:
       var: ansible_os_family
 

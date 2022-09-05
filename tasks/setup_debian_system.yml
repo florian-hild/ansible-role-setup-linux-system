@@ -5,21 +5,25 @@
   ansible.builtin.apt:
     name: "{{ package_list_debian }}"
     state: latest
-    update_cache: yes
+    update_cache: true
+
 - name: "Set timezone to {{ timezone }}"
   tags: setup-linux-system_set_timezone
   community.general.timezone:
     name: "{{ timezone }}"
+
 - name: Ensure en_US.UTF-8 locale exists
   tags: setup-linux-system_set_locale_us_utf8
   community.general.locale_gen:
     name: en_US.UTF-8
     state: present
+
 - name: Ensure de_DE.UTF-8 locale exists
   tags: setup-linux-system_set_locale_de_utf8
   community.general.locale_gen:
     name: de_DE.UTF-8
     state: present
+
 - name: Deploy /etc/default/locale
   tags: setup-linux-system_deploy_locale
   ansible.builtin.template:
